@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { useEffect,useState } from 'react';
+import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity,View } from "react-native";
 import {Input,Button ,ListItem,Header} from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
+
 
 const DATA = [
   {
@@ -8,50 +10,55 @@ const DATA = [
     nome:"Marcos Andrade",
     telefone:"(81) 988553424"
   },
+  {
+    id: "bd7acbea-c1b1-46c2-aed5-",
+    nome:"Marcos Andrade",
+    telefone:"(81) 988553424"
+  },
 ];
 
-const Item = ({ item, onPress, backgroundColor, textColor }) => (
-  <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
+const Item = ({ item, backgroundColor, textColor,onPress}) => (
+  <TouchableOpacity style={[styles.item, backgroundColor]} onPress={onPress}>
     <Text style={[styles.title, textColor]}>{item.nome}</Text>
     <Text style={[styles.title, textColor]}>{item.telefone}</Text>
   </TouchableOpacity>
 );
 
-const Inicio = ({navigation}) => {
-  const [selectedId, setSelectedId] = useState(null);
-
-  const renderItem = ({ item ,navigation}) => {
-    const backgroundColor = item.id === selectedId ? "gray" : "lightgray";
-    const color = item.id === selectedId ? 'white' : 'black';
-
+function Inicio() {
+  const navigation = useNavigation();
+  const renderItem = ({ item }) => {
+    const backgroundColor = "lightgray";
+    const color = 'black';
+    
     return (
-        //() => setSelectedId(item.id)
       <Item
         item={item}
-        onPress={()=>navigation.navigate('NovoContato')}
         backgroundColor={{ backgroundColor }}
         textColor={{ color }}
-      />
+        onPress={() => navigation.navigate("AlterarContato",
+        {
+          id:item.id,
+          nome:item.nome,
+          numero:item.numero
+        })}
+       />
     );
   };
 
   return (
     <SafeAreaView style={styles.container}>
-        <Header centerComponent={{ text: 'Lista de Contatos', style: { color: '#fff', fontSize:20 } }} rightComponent={
-                <Button  
-                title="+" titleStyle={{ color:'#fff', fontSize:30}} 
-                onPress={()=>navigation.navigate('NovoContato')}
-                
-                ></Button>}/>
+      <Header centerComponent={{ text: 'Lista de Contatos', style: { color: '#fff', fontSize: 20 } }} rightComponent={<Button
+        title="+" titleStyle={{ color: '#fff', fontSize: 20 }}
+        onPress={() => navigation.navigate('NovoContato')}>
+        </Button>}
+        />
       <FlatList
         data={DATA}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        extraData={selectedId}
-      />
+        keyExtractor={(item) => item.id}/>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {

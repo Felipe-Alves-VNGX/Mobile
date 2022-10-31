@@ -1,12 +1,21 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { useEffect,useState } from 'react';
+import { StyleSheet, Text, View, } from 'react-native';
 import {Input,Button } from 'react-native-elements';
 
-export default function AlterarContato({navigation}) {
+export default function AlterarContato({navigation,route}) {
+    const [getItem,setItem] = useState();
+    useEffect(()=>{
+        if(route.params){
+            const {item} = route.params
+            setItem(item)
+            console.log(getItem)
+        }
+    })
     return (
         <View style={Styles.container}>
-           <Input label={"nome"} value={"Marco Andrade"}/>    
-        <Input label={"Email"} value={"mand@gmail.com"}/>
-        <Input label={"Telefone"} secureTextEntry={true} value={"81 988553424"}/>
+        <Text>{getItem}</Text>
+        <Input label={"nome"} />    
+        <Input label={"Telefone"} secureTextEntry={true} />
         <Button title={"Salvar"} containerStyle={{color:"red"}} onPress={() => navigation.navigate('Inicio')}/>
         </View>
     );
