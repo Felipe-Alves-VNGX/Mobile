@@ -7,7 +7,7 @@ export default function Login({navigation}) {
         <Input label={"Email"}/>
         <Input label={"Senha"} secureTextEntry={true}/>
         <Button title={"Login"} onPress={() => navigation.navigate('Inicio')}/>
-        <Button title={"Cadastre-se"} containerStyle={{color:red}} onPress={() => navigation.navigate('Cadastro')}/>
+        <Button title={"Cadastre-se"} containerStyle={{color:"red"}} onPress={() => navigation.navigate('Cadastro')}/>
         </View>
     );
 };

@@ -7,7 +7,7 @@ export default function NovoContato({navigation}) {
            <Input label={"nome"}/>    
         <Input label={"Email"}/>
         <Input label={"Telefone"} secureTextEntry={true}/>
-        <Button title={"Salvar"} containerStyle={{color:red}} onPress={() => navigation.navigate('Inicio')}/>
+        <Button title={"Salvar"} containerStyle={{color:"red"}} onPress={() => navigation.navigate('Inicio')}/>
         </View>
     );
 };

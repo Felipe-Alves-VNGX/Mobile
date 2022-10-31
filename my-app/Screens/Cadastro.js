@@ -8,7 +8,7 @@ export default function Cadastro({navigation}) {
         <Input label={"CPF"}/>   
         <Input label={"Email"}/>
         <Input label={"Senha"} secureTextEntry={true}/>
-        <Button title={"Salvar"} containerStyle={{color:red}} onPress={() => navigation.navigate('Login')}/>
+        <Button title={"Salvar"} containerStyle={{color:"red"}} onPress={() => navigation.navigate('Login')}/>
         </View>
     );
 };

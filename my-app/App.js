@@ -13,7 +13,7 @@ export default function App() {
     <NavigationContainer>
     <Stack.Navigator>
     <Stack.Screen name="Login" component={LoginScreen}/>
-    <Stack.Screen name="Cadastros" component={CadastroScreen}/>
+    <Stack.Screen name="Cadastro" component={CadastroScreen}/>
     <Stack.Screen name="Inicio" component={InicioScreen}/>
     <Stack.Screen name="NovoContato" component={NovoContatoScreen}/>
     <Stack.Screen name="AlterarContato" component={AlterarContatoScreen}/>
@@ -21,3 +21,4 @@ export default function App() {
     </NavigationContainer>
   );
 }
+

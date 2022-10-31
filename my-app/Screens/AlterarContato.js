@@ -7,7 +7,7 @@ export default function AlterarContato({navigation}) {
            <Input label={"nome"} value={"Marco Andrade"}/>    
         <Input label={"Email"} value={"mand@gmail.com"}/>
         <Input label={"Telefone"} secureTextEntry={true} value={"81 988553424"}/>
-        <Button title={"Salvar"} containerStyle={{color:red}} onPress={() => navigation.navigate('Inicio')}/>
+        <Button title={"Salvar"} containerStyle={{color:"red"}} onPress={() => navigation.navigate('Inicio')}/>
         </View>
     );
 };
