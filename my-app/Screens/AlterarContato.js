@@ -1,22 +1,42 @@
-import { useEffect,useState } from 'react';
-import { StyleSheet, Text, View, } from 'react-native';
-import {Input,Button } from 'react-native-elements';
+import React,{ useEffect,useState } from 'react';
+import { StyleSheet, Text, View,TextInput } from 'react-native';
+import {Button,Header } from 'react-native-elements';
 
 export default function AlterarContato({navigation,route}) {
-    const [getItem,setItem] = useState();
+    [getNome,setNome] = useState();
+    [getTelefone,setTelefone] = useState();
+    [getId,setId] = useState();
+
+
     useEffect(()=>{
-        if(route.params){
-            const {item} = route.params
-            setItem(item)
-            console.log(getItem)
-        }
-    })
+      if(route.params){
+            const { nome } =  route.params 
+            const { telefone } =  route.params 
+            const { id } =  route.params
+
+            setNome(nome)
+            setTelefone(telefone)
+            setId(id)
+      }
+    },[]) 
+
     return (
         <View style={Styles.container}>
-        <Text>{getItem}</Text>
-        <Input label={"nome"} />    
-        <Input label={"Telefone"} secureTextEntry={true} />
-        <Button title={"Salvar"} containerStyle={{color:"red"}} onPress={() => navigation.navigate('Inicio')}/>
+            <Header
+          leftComponent={
+            <Button  
+            title="<"
+            onPress={()=>navigation.goBack()}
+            ></Button>}
+          centerComponent={{ text: 'Alterar Contato', style: { color: '#fff', fontSize:20 } }}
+          />
+        <TextInput
+            style={{ height: 40,width:300, borderColor: 'gray', borderWidth: 1 }}
+            onChangeText={text => setNome(text)}
+            value={getNome}
+            />    
+       
+        <Button title={"Salvar"} containerStyle={{color:"red"}} onPress={() => navigation.goBack()}/>
         </View>
     );
 };

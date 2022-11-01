@@ -1,20 +1,33 @@
 import { StyleSheet, Text, View } from 'react-native';
-import {Input,Button } from 'react-native-elements';
+import {Input,Button,Header } from 'react-native-elements';
 
 export default function NovoContato({navigation}) {
     return (
         <View style={Styles.container}>
-           <Input label={"nome"}/>    
-        <Input label={"Email"}/>
-        <Input label={"Telefone"} secureTextEntry={true}/>
-        <Button title={"Salvar"} containerStyle={{color:"red"}} onPress={() => navigation.navigate('Inicio')}/>
+ <Header
+          leftComponent={
+            <Button  
+            title="<"
+            onPress={()=>navigation.goBack()}
+            ></Button>}
+          centerComponent={{ text: 'Novo Contato', style: { color: '#fff', fontSize:20 } }}
+          
+ />
+
+           <Input label={"nome"} containerStyle={Styles.box}/>    
+        <Input label={"Email"} containerStyle={Styles.box}/>
+        <Input label={"Telefone"} containerStyle={Styles.box}/>
+        <Button title={"Salvar"} buttonStyle={{backgroundColor:"green"}} onPress={() => navigation.navigate('Inicio')} containerStyle={Styles.box}/>
         </View>
     );
 };
 
 const Styles = StyleSheet.create({
     container:{
-        flex:1
-
+        flex:1,
+    },
+    box:{
+    marginHorizontal:10,
+    marginVertical:20,
     }
 })

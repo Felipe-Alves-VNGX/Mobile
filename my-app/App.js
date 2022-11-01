@@ -12,11 +12,11 @@ export default function App() {
   return (
     <NavigationContainer>
     <Stack.Navigator>
-    <Stack.Screen name="Login" component={LoginScreen}/>
-    <Stack.Screen name="Cadastro" component={CadastroScreen}/>
-    <Stack.Screen name="Inicio" component={InicioScreen}/>
-    <Stack.Screen name="NovoContato" component={NovoContatoScreen}/>
-    <Stack.Screen name="AlterarContato" component={AlterarContatoScreen}/>
+    <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }}/>
+    <Stack.Screen name="Cadastro" component={CadastroScreen} options={{ headerShown: false }}/>
+    <Stack.Screen name="Inicio" component={InicioScreen} options={{ headerShown: false }}/>
+    <Stack.Screen name="NovoContato" component={NovoContatoScreen} options={{ headerShown: false }}/>
+    <Stack.Screen name="AlterarContato" component={AlterarContatoScreen} options={{ headerShown: false }}/>
     </Stack.Navigator>
     </NavigationContainer>
   );

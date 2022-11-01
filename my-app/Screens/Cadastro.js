@@ -1,9 +1,18 @@
 import { StyleSheet, Text, View } from 'react-native';
-import {Input,Button } from 'react-native-elements';
+import {Input,Button,Header } from 'react-native-elements';
 
 export default function Cadastro({navigation}) {
     return (
         <View style={Styles.container}>
+            <Header
+          leftComponent={
+            <Button  
+            title="<"
+            onPress={()=>navigation.goBack()}
+            ></Button>}
+          centerComponent={{ text: 'Cadastro', style: { color: '#fff', fontSize:20 } }}
+          
+ />
            <Input label={"nome"}/>    
         <Input label={"CPF"}/>   
         <Input label={"Email"}/>
