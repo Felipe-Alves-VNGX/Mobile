@@ -47,6 +47,7 @@ export default function ListaScreen({navigation}){
             nome: u.nome,
             telefone: u.telefone,
             cpf: u.cpf,
+            email: u.email,
             id: u.id,
           })}>
           <Card >
